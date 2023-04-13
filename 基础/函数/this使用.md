@@ -54,3 +54,27 @@ public:
 };
 
 ```
+
+# （可链接）通过*this来简写函数
+```c++
+#include<iostream>
+
+class Calc
+{
+private:
+	int value;
+public:
+	// 返回value
+	Calc& add(int m_value) { value += m_value; return *this; }
+	Calc& adds(int m_value) { value += m_value; return *this; }
+};
+
+
+int main()
+{
+	int* b = nullptr;
+	int& a{*b};
+	
+	return 0;
+}
+```
