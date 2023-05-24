@@ -3,6 +3,7 @@
 |关键词|描述|示例|
 |----|----|----|
 |`static`|让元素只具备链接，只能在定义`static`的元素中使用|1.0|
+|`extern`|变量的外部链接|1.0|
 
 
 
@@ -21,6 +22,9 @@ void h()
 {
     cout<<"hello world"<<endl;
 }
+
+extern const int g_y{ 3 };  // 默认情况下，非const全局变量是外部变量（如果使用，则会忽略extern关键字）。
+int g_x{ 2 }; // 如果没有const则本身就具有外部链接。
 ```
 
 文件main.cpp
@@ -28,6 +32,9 @@ void h()
 #include <iostream>
 #include "a.h"
 using namespace std;
+
+extern const int g_y;
+extern int g_x;
     
 int main()
 {
