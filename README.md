@@ -4,6 +4,7 @@
 |----|----|----|
 |`static`|让元素只具备链接，只能在定义`static`的元素中使用|1.0|
 |`extern`|变量的外部链接|1.0|
+|`inline`|定义内联命名空间|1.1|
 
 
 
@@ -40,6 +41,25 @@ int main()
 {
     a(); // 就算再头文件中声明了函数a(), 在其他文件中也访问不到这个函数。
     h(); // 没有static声明的函数，可以被访问到。
+    return 0;
+}
+```
+
+## 定义内联命名空间 1.1
+```cpp
+inline namespace v1
+{
+    void doSomething()
+    {
+        std::cout << "v1\n";
+    }
+}
+
+int main()
+{
+    // 内联命名空间的访问。
+    doSomething();
+
     return 0;
 }
 ```
