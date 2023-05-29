@@ -70,7 +70,7 @@ int main()
 static_cast<Pet>(2)
 ```
 
-## 箭头操作符
+## 箭头操作符 1.3
 ```cpp
 #include <iostream>
 using namespace std;
