@@ -5,6 +5,7 @@
 |`static`|让元素只具备链接，只能在定义`static`的元素中使用|1.0|
 |`extern`|变量的外部链接|1.0|
 |`inline`|定义内联命名空间|1.1|
+|`static_cast<>()`|类型转换|1.2|
 
 
 
@@ -62,4 +63,9 @@ int main()
 
     return 0;
 }
+```
+
+## 类型转换 1.2
+```cpp
+static_cast<Pet>(2)
 ```
