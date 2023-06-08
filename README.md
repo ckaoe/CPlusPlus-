@@ -13,6 +13,8 @@
 |`inline`|定义内联命名空间|1.1|
 |`static_cast<>()`|类型转换|1.2|
 |`->`|从指针操作符或箭头操作符，可以用来从指向对象的指针中选择成员|1.3|
+|`friend`|友元关键词||1.4|
+|`operator`|重载关键词operator|1.4|
 
 
 ## 示例1.0
@@ -96,6 +98,43 @@ int main()
 
     // 从指针操作符（->）,可以用来从指向对象的指针中选择成员。
     cout << jo->age << endl;
+
+    return 0;
+}
+```
+
+## 1.4 友元和重载
+```cpp
+#include<iostream>
+using namespace std;
+
+class Person
+{
+private:
+    int m_a{};
+public:
+    Person(int a):m_a{a}{}
+    
+    // 友元关键字和重载关键字
+    friend Person operator+(const Person &p1, const Person &p2);
+
+    int getPerson() { return m_a; }
+
+};
+
+Person operator+(const Person &p1, const Person &p2)
+{
+    return p1.m_a + p2.m_a;
+}
+
+
+
+int main()
+{
+    Person p1{1};
+    Person p2{2};
+    Person person{p1 + p2};
+    cout << person.getPerson() << endl;
 
     return 0;
 }
