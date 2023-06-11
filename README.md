@@ -17,6 +17,7 @@
 |`->`|从指针操作符或箭头操作符，可以用来从指向对象的指针中选择成员|1.3|
 |`friend`|友元关键词||1.4|
 |`operator`|重载关键词operator|1.4|
+|`virtual`|虚构函数|1.5|
 
 
 ## 示例1.0
@@ -139,5 +140,48 @@ int main()
     cout << person.getPerson() << endl;
 
     return 0;
+}
+```
+----
+## 虚构函数
+```cpp
+#include<iostream>
+#include<string_view>
+using namespace std;
+
+class A
+{
+public:
+	virtual string_view getName()const { return "A"; }
+};
+
+class B :public A
+{
+public:
+	virtual string_view getName()const { return "B"; }
+};
+
+class C :public B
+{
+public:
+	virtual string_view getName()const { return "C"; }
+};
+
+class D :public C
+{
+public:
+	virtual string_view getName()const { return "D"; }
+};
+
+int main()
+{
+	C c{};
+	A& rBase{ c };
+	cout << "rBase is a " << rBase.getName() << endl;
+
+	A a{ c };
+	cout << a.getName() << endl;
+
+	return 0;
 }
 ```
